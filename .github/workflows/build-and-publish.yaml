@@ -80,7 +80,7 @@ jobs:
           file: ./Dockerfile
           build-args: |
             LIBCRYPTO_VERSION=${{ env.LIBCRYPTO_VERSION }}
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7
           tags: |
             ghcr.io/darrylweaver/${{ env.CONTROLLER }}:${{ steps.prep.outputs.VERSION }}
           labels: |
@@ -101,7 +101,7 @@ jobs:
             LIBCRYPTO_VERSION=${{ env.LIBCRYPTO_VERSION }}
             BUILD_VERSION=${{ steps.prep.outputs.BUILD_VERSION }}
             BUILD_SHA=${{ steps.prep.outputs.BUILD_SHA }}
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7
           tags: |
             ghcr.io/darrylweaver/tf-runner:${{ steps.prep.outputs.VERSION }}-base
           labels: |
@@ -118,7 +118,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./runner.Dockerfile
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7
           build-args: |
             BASE_IMAGE=ghcr.io/darrylweaver/tf-runner:${{ steps.prep.outputs.VERSION }}-base
           tags: |
@@ -137,7 +137,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./planner.Dockerfile
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7
           build-args: |
             LIBCRYPTO_VERSION=${{ env.LIBCRYPTO_VERSION }}
           tags: |

@@ -74,7 +74,7 @@ jobs:
           mv terraform /usr/local/bin/terraform
           terraform --version
       - name: Setup Kustomize
-        if: !github.event.pull_request.head.repo.fork
+        if: "!github.event.pull_request.head.repo.fork"
         uses: fluxcd/pkg/actions/kustomize@30c101fc7c9fac4d84937ff4890a3da46a9db2dd # main
       - name: Run tests
         run: |
@@ -101,7 +101,7 @@ jobs:
           mv terraform /usr/local/bin/terraform
           terraform --version
       - name: Setup Kustomize
-        if: !github.event.pull_request.head.repo.fork
+        if: "!github.event.pull_request.head.repo.fork"
         uses: fluxcd/pkg/actions/kustomize@30c101fc7c9fac4d84937ff4890a3da46a9db2dd # main
       - name: Run tests
         run: |

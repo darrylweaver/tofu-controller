@@ -207,7 +207,6 @@ jobs:
           args: release --release-notes=./config/release/notes.md --skip-validate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HOMEBREW_TAP_GITHUB_TOKEN: ${{ secrets.TF_CONTROLLER_WEAVEWORKSBOT }}
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@0ad2bb377311d61ac04ad9eb6f252fb68e207260 # v1.7.0
         with:

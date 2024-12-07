@@ -71,7 +71,7 @@ jobs:
           file: ./Dockerfile
           build-args: |
             LIBCRYPTO_VERSION=${{ env.LIBCRYPTO_VERSION }}
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7
           tags: |
             ghcr.io/darrylweaver/${{ env.CONTROLLER }}:${{ steps.prep.outputs.VERSION }}
             ghcr.io/darrylweaver/${{ env.CONTROLLER }}:latest
@@ -91,7 +91,7 @@ jobs:
           file: ./runner-base.Dockerfile
           build-args: |
             LIBCRYPTO_VERSION=${{ env.LIBCRYPTO_VERSION }}
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7
           tags: |
             ghcr.io/darrylweaver/tf-runner:${{ steps.prep.outputs.VERSION }}-base
           labels: |
@@ -109,7 +109,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./runner.Dockerfile
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7
           build-args: |
             BASE_IMAGE=ghcr.io/darrylweaver/tf-runner:${{ steps.prep.outputs.VERSION }}-base
           tags: |
@@ -130,7 +130,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./runner-azure.Dockerfile
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7 - azure-cli does not install correctly on 32 bit arm
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7 - azure-cli does not install correctly on 32 bit arm
           build-args: |
             BASE_IMAGE=ghcr.io/darrylweaver/tf-runner:${{ steps.prep.outputs.VERSION }}-base
           tags: |
@@ -153,7 +153,7 @@ jobs:
           file: ./planner.Dockerfile
           build-args: |
             LIBCRYPTO_VERSION=${{ env.LIBCRYPTO_VERSION }}
-          platforms: linux/amd64,linux/arm64 #,linux/arm/v7 - azure-cli does not install correctly on 32 bit arm
+          platforms: linux/amd64 #,linux/arm64 #,linux/arm/v7 - azure-cli does not install correctly on 32 bit arm
           tags: |
             ghcr.io/darrylweaver/branch-planner:${{ steps.prep.outputs.VERSION }}
             ghcr.io/darrylweaver/branch-planner:latest
